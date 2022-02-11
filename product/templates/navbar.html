@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 p-0">
+        <header class="mb-4">
+            <nav class="navbar navbar-expand-lg bg-dark">
+                <a href="{{url_for("home")}}" class="navbar-brand text-primary">Product Stock</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id=navbarNavAltMarkup>
+                    <div class="navbar-nav ml-auto mr-3">
+                        <a href="{{url_for("add_product")}}" class="nav-item nav-link text-primary">Add Product</a>
+                        <a href="{{url_for("dashboard")}}" class="nav-item nav-link text-primary">Dashboard</a>
+
+                    </div>
+                </div>
+
+            </nav>
+        </header>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10"></div>
+            {% with messages = get_flashed_messages(with_categories = True) %}
+                {% if messages %}  
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                        </div>
+                    {% endfor %}
+                    
+                {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</div>

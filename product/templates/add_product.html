@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block title %}{{title}}{% endblock  %}
+{% block content %}
+   <div class="container">
+        <div class="card bg-warning">
+            <div class="card-body text-info">
+                <h2 class="card-title text-center">Add Product</h2>
+                <h5 class="card-subtitle mb-2 text-muted text-center">Add product of income and expanse to stock</h5>
+                    <form action="" method="post" novalidate>
+                        {{form.hidden_tag()}}
+                        <div class="form-group">
+                            {{form.product_id.label(class="mb-3 font-weight-bold text-primary")}}
+                            {% if form.product_id.errors %}
+                            {{form.product_id(class="form-control p-3 is-invalid")}} 
+                            {% for error in form.product_id.errors %}
+                                <div class="invalid-feedback">
+                                    <span>{{error}}</span>
+                                </div>
+                            {% endfor %}
+                            {% else %}
+                            {{form.product_id(class="form-control p-3")}} 
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{form.product_name.label(class="mb-3 font-weight-bold text-primary")}}
+                            {% if form.product_name.errors %}
+                            {{form.product_name(class="form-control p-3 is-invalid")}} 
+                            {% for error in form.product_name.errors %}
+                                <div class="invalid-feedback">
+                                    <span>{{error}}</span>
+                                </div>
+                            {% endfor %}
+                            {% else %}
+                            {{form.product_name(class="form-control p-3")}} 
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{form.product_type.label(class="mb-3 font-weight-bold text-primary")}}
+                            {{form.product_type(class="form-control form-control-lg")}} 
+                         
+                        </div>
+                        <div class="form-group">
+                            {{form.category.label(class="mb-3 font-weight-bold text-primary")}}
+                            {{form.category(class="form-control form-control-lg")}} 
+                           
+                        </div>
+                        <div class="form-group">
+                            {{form.price.label(class="mb-3 font-weight-bold text-primary")}}
+                            {% if form.price.errors %}
+                            {{form.price(class="form-control p-3 is-invalid")}} 
+                            {% for error in form.price.errors %}
+                                <div class="invalid-feedback">
+                                    <span>{{error}}</span>
+                                </div>
+                            {% endfor %}
+                            {% else %}
+                            {{form.price(class="form-control p-3")}} 
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{form.submit(class="btn btn-outline-success p-3")}}
+                        </div>
+                    </form>
+            
+                </div>
+            </div>
+    
+   </div>
+{% endblock  %}
